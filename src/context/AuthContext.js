@@ -45,10 +45,9 @@ export function AuthProvider({children}) {
         setUser(null)
         localStorage.removeItem("user")
         console.log("User logged out")
-        console.log("Выход выполнен")
       })
       .catch((error) => {
-        console.error("Ошибка выхода из Firebase:", error)
+        console.error("Firebase signOut error:", error)
       })
   }
 
