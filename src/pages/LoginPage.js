@@ -6,7 +6,7 @@ import {auth, provider, signInWithPopup} from "../firebase"
 function LoginPage() {
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
-  const {login, setUser} = useAuth()
+  const {login} = useAuth()
   const navigate = useNavigate()
 
   const handleSubmit = (e) => {
@@ -22,17 +22,16 @@ function LoginPage() {
 
   const handleGoogleLogin = async () => {
     try {
-      const result = await signInWithPopup(auth, provider)
-      const userData = {email: result.user.email}
-      setUser(userData)
-      localStorage.setItem("user", JSON.stringify(userData))
+      await signInWithPopup(auth, provider)
+      // Firebase сам вызовет onAuthStateChanged, и мы попадём в navigate("/") из AuthContext
       navigate("/")
     } catch (error) {
-      if (error.code === "auth/cancelled-popup-request") {
-        console.log("Окно авторизации было закрыто пользователем")
+      if (error.code === "auth/popup-closed-by-user") {
+        console.log("Окно авторизации закрыто пользователем")
       } else {
         console.log("Firebase Auth Error:", error.code)
         console.error(error)
+        alert("Ошибка при входе через Google")
       }
     }
   }
