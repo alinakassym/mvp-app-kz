@@ -1,5 +1,5 @@
 import {createContext, useContext, useState, useEffect} from "react"
-import {onAuthStateChanged} from "firebase/auth"
+import {onAuthStateChanged, signOut} from "firebase/auth"
 import {auth} from "../firebase"
 
 const AuthContext = createContext()
@@ -10,6 +10,7 @@ export function AuthProvider({children}) {
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (firebaseUser) => {
+      console.log("User state changed:", firebaseUser)
       if (firebaseUser) {
         const userData = {email: firebaseUser.email}
         setUser(userData)
@@ -39,8 +40,16 @@ export function AuthProvider({children}) {
   }
 
   const logout = () => {
-    setUser(null)
-    localStorage.removeItem("user")
+    signOut(auth)
+      .then(() => {
+        setUser(null)
+        localStorage.removeItem("user")
+        console.log("User logged out")
+        console.log("Выход выполнен")
+      })
+      .catch((error) => {
+        console.error("Ошибка выхода из Firebase:", error)
+      })
   }
 
   return (
