@@ -28,8 +28,12 @@ function LoginPage() {
       localStorage.setItem("user", JSON.stringify(userData))
       navigate("/")
     } catch (error) {
-      alert("Ошибка при входе через Google")
-      console.error(error)
+      if (error.code === "auth/cancelled-popup-request") {
+        console.log("Окно авторизации было закрыто пользователем")
+      } else {
+        console.log("Firebase Auth Error:", error.code)
+        console.error(error)
+      }
     }
   }
 
