@@ -30,8 +30,8 @@ export function AuthProvider({children}) {
   }, [])
 
   const login = (email, password) => {
-    const demoEmail = "test@example.com"
-    const demoPassword = "1test23456example"
+    const demoEmail = "test@test.kz"
+    const demoPassword = "asd12345"
 
     if (email === demoEmail && password === demoPassword) {
       const userData = {email}
