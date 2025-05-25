@@ -13,21 +13,20 @@ export function AuthProvider({children}) {
     if (storedUser) {
       setUser(JSON.parse(storedUser))
       setLoading(false)
-    } else {
-      const unsubscribe = onAuthStateChanged(auth, (firebaseUser) => {
-        console.log("User state changed:", firebaseUser)
-        if (firebaseUser) {
-          const userData = {email: firebaseUser.email}
-          setUser(userData)
-          localStorage.setItem("user", JSON.stringify(userData))
-        } else {
-          setUser(null)
-          localStorage.removeItem("user")
-        }
-        setLoading(false)
-      })
-      return () => unsubscribe()
     }
+    const unsubscribe = onAuthStateChanged(auth, (firebaseUser) => {
+      console.log("User state changed:", firebaseUser)
+      if (firebaseUser) {
+        const userData = {email: firebaseUser.email}
+        setUser(userData)
+        localStorage.setItem("user", JSON.stringify(userData))
+      } else {
+        setUser(null)
+        localStorage.removeItem("user")
+      }
+      setLoading(false)
+    })
+    return () => unsubscribe()
   }, [])
 
   const login = (email, password) => {
