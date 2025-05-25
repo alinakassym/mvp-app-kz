@@ -1,11 +1,5 @@
 import React, {useState} from "react"
-import {
-  BottomNavigation,
-  BottomNavigationAction,
-  Box,
-  Paper,
-} from "@mui/material"
-import {AccountCircle} from "@mui/icons-material"
+import {BottomNavigation, BottomNavigationAction} from "@mui/material"
 import {useNavigate} from "react-router-dom"
 import {useAuth} from "../context/AuthContext"
 import {ReactComponent as HomeIcon} from "../assets/icons/home.svg"
