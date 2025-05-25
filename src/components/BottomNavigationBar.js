@@ -24,31 +24,33 @@ function BottomNavigationBar() {
   }
 
   return (
-    <div className="bottom-navigation-bar">
-      <BottomNavigation
-        sx={{
-          display: "grid",
-          gridTemplateColumns: "repeat(2, 1fr)",
-          gap: 10,
-        }}
-        value={value}
-        onChange={(event, newValue) => handleNavigation(newValue)}
-      >
-        <BottomNavigationAction
-          sx={{maxWidth: "50px", borderRadius: 28}}
-          style={{
-            fill: value === 0 ? "#3A94E7" : "#9E9E9E",
+    <div className="bottom-navigation-bar-wrapper">
+      <div className="bottom-navigation-bar">
+        <BottomNavigation
+          sx={{
+            display: "grid",
+            gridTemplateColumns: "repeat(2, 1fr)",
+            gap: 10,
           }}
-          icon={<HomeIcon style={{width: 28, height: 28}} />}
-        />
-        <BottomNavigationAction
-          sx={{maxWidth: "50px", borderRadius: 28}}
-          style={{
-            fill: value === 1 ? "#3A94E7" : "#9E9E9E",
-          }}
-          icon={<UserIcon style={{width: 28, height: 28}} />}
-        />
-      </BottomNavigation>
+          value={value}
+          onChange={(event, newValue) => handleNavigation(newValue)}
+        >
+          <BottomNavigationAction
+            sx={{maxWidth: "50px", borderRadius: 28}}
+            style={{
+              fill: value === 0 ? "#3A94E7" : "#9E9E9E",
+            }}
+            icon={<HomeIcon style={{width: 28, height: 28}} />}
+          />
+          <BottomNavigationAction
+            sx={{maxWidth: "50px", borderRadius: 28}}
+            style={{
+              fill: value === 1 ? "#3A94E7" : "#9E9E9E",
+            }}
+            icon={<UserIcon style={{width: 28, height: 28}} />}
+          />
+        </BottomNavigation>
+      </div>
     </div>
   )
 }

@@ -8,13 +8,14 @@
   top: 0;
   left: 0;
   right: 0;
-  padding: 20px;
+  padding: 20px 24px 20px 20px;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  background: linear-gradient(to bottom, #ffffff 70%, transparent);
-  z-index: 10;
+  border-bottom: 1px solid #e0e0e0;
+  background-color: #ffffff;
+  z-index: 6;
 }
 
 .home-page-header-icon-item {
@@ -22,13 +23,24 @@
   gap: 8px;
   align-items: center;
   font-weight: bolder;
+  font-size: 18px;
+}
+
+.home-page-header-icon-item > svg {
+  width: 32px;
+  height: auto;
+}
+
+.home-page-content-wrapper {
+  position: fixed;
+  top: 0;
+  bottom: 68px;
+  padding: 92px 20px 20px;
+  overflow: hidden;
+  overflow-y: auto;
+  z-index: 5;
 }
 
 .home-page-content {
-  position: fixed;
-  top: 0;
-  bottom: 94px;
-  padding: 64px 20px 20px;
-  overflow: hidden;
-  overflow-y: auto;
+  position: relative;
 }
