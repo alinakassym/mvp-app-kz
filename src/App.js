@@ -8,13 +8,14 @@ import LoginPage from "./pages/LoginPage"
 import HomePage from "./pages/HomePage"
 import ProfilePage from "./pages/ProfilePage"
 import PrivateRoute from "./components/PrivateRoute"
+import Navbar from "./components/Navbar"
 
 function App() {
   return (
     <Router>
+      <Navbar />
       <Routes>
         <Route path="/login" element={<LoginPage />} />
-
         <Route
           path="/"
           element={
@@ -23,7 +24,6 @@ function App() {
             </PrivateRoute>
           }
         />
-
         <Route
           path="/profile"
           element={
