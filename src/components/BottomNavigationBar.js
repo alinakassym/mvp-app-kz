@@ -1,8 +1,16 @@
 import React, {useState} from "react"
-import {BottomNavigation, BottomNavigationAction, Paper} from "@mui/material"
-import {AccountCircle, ClassOutlined} from "@mui/icons-material"
+import {
+  BottomNavigation,
+  BottomNavigationAction,
+  Box,
+  Paper,
+} from "@mui/material"
+import {AccountCircle} from "@mui/icons-material"
 import {useNavigate} from "react-router-dom"
 import {useAuth} from "../context/AuthContext"
+import {ReactComponent as HomeIcon} from "../assets/icons/home.svg"
+import {ReactComponent as UserIcon} from "../assets/icons/circle-user.svg"
+import "./BottomNavigationBar.css"
 
 function BottomNavigationBar() {
   const [value, setValue] = useState(0)
@@ -16,16 +24,32 @@ function BottomNavigationBar() {
   }
 
   return (
-    <Paper sx={{position: "fixed", bottom: 0, left: 0, right: 0}} elevation={3}>
+    <div className="bottom-navigation-bar">
       <BottomNavigation
-        showLabels
+        sx={{
+          display: "grid",
+          gridTemplateColumns: "repeat(2, 1fr)",
+          gap: 10,
+        }}
         value={value}
         onChange={(event, newValue) => handleNavigation(newValue)}
       >
-        <BottomNavigationAction label="Главная" icon={<ClassOutlined />} />
-        <BottomNavigationAction label="Профиль" icon={<AccountCircle />} />
+        <BottomNavigationAction
+          sx={{maxWidth: "50px", borderRadius: 28}}
+          style={{
+            fill: value === 0 ? "#3A94E7" : "#9E9E9E",
+          }}
+          icon={<HomeIcon style={{width: 28, height: 28}} />}
+        />
+        <BottomNavigationAction
+          sx={{maxWidth: "50px", borderRadius: 28}}
+          style={{
+            fill: value === 1 ? "#3A94E7" : "#9E9E9E",
+          }}
+          icon={<UserIcon style={{width: 28, height: 28}} />}
+        />
       </BottomNavigation>
-    </Paper>
+    </div>
   )
 }
 
