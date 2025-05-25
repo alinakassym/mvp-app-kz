@@ -2,6 +2,8 @@ import {useState} from "react"
 import {useNavigate} from "react-router-dom"
 import {useAuth} from "../context/AuthContext"
 import {auth, provider, signInWithPopup} from "../firebase"
+import {Box, Button, TextField, Typography, Divider} from "@mui/material"
+import GoogleIcon from "@mui/icons-material/Google"
 
 function LoginPage() {
   const [email, setEmail] = useState("")
@@ -23,7 +25,6 @@ function LoginPage() {
   const handleGoogleLogin = async () => {
     try {
       await signInWithPopup(auth, provider)
-      // Firebase сам вызовет onAuthStateChanged, и мы попадём в navigate("/") из AuthContext
       navigate("/")
     } catch (error) {
       if (error.code === "auth/popup-closed-by-user") {
@@ -37,32 +38,63 @@ function LoginPage() {
   }
 
   return (
-    <div>
-      <h2>Login</h2>
-      <form onSubmit={handleSubmit}>
-        <label>Email</label>
-        <input
+    <Box
+      sx={{
+        maxWidth: 400,
+        margin: "auto",
+        padding: 3,
+        display: "flex",
+        flexDirection: "column",
+        gap: 2,
+        borderRadius: 2,
+        backgroundColor: "#fff",
+      }}
+    >
+      <Typography variant="h4" component="h1" align="center" gutterBottom>
+        Вход
+      </Typography>
+      <form
+        onSubmit={handleSubmit}
+        style={{display: "flex", flexDirection: "column", gap: "16px"}}
+      >
+        <TextField
+          label="Email"
           type="email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           required
+          fullWidth
         />
-
-        <label>Password</label>
-        <input
+        <TextField
+          label="Password"
           type="password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           required
+          fullWidth
         />
-
-        <button type="submit">Login</button>
+        <Button
+          type="submit"
+          variant="contained"
+          color="primary"
+          size="large"
+          fullWidth
+        >
+          Login
+        </Button>
       </form>
-
-      <hr />
-
-      <button onClick={handleGoogleLogin}>Войти через Google</button>
-    </div>
+      <Divider sx={{my: 2}}>OR</Divider>
+      <Button
+        onClick={handleGoogleLogin}
+        variant="outlined"
+        color="secondary"
+        size="large"
+        startIcon={<GoogleIcon />}
+        fullWidth
+      >
+        Войти через Google
+      </Button>
+    </Box>
   )
 }
 
