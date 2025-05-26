@@ -1,7 +1,10 @@
+import {Button} from "@mui/material"
 import {useNavigate} from "react-router-dom"
 import {useAuth} from "../context/AuthContext"
+import {useTheme} from "../context/ThemeContext"
 
 function ProfilePage() {
+  const {mode, toggleTheme} = useTheme()
   const {user, logout} = useAuth()
   const navigate = useNavigate()
 
@@ -15,7 +18,9 @@ function ProfilePage() {
     <div>
       <h2>Профиль</h2>
       <p>Email: {user?.email}</p>
-
+      <Button color="inherit" onClick={toggleTheme}>
+        {mode === "light" ? "Dark Mode" : "Light Mode"}
+      </Button>
       <button onClick={handleLogout}>Выйти</button>
     </div>
   )
