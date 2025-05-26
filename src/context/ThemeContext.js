@@ -1,4 +1,4 @@
-import {createContext, useContext, useState, useMemo} from "react"
+import {createContext, useContext, useState, useMemo, useEffect} from "react"
 import {
   createTheme,
   ThemeProvider as MuiThemeProvider,
@@ -7,11 +7,23 @@ import {
 const ThemeContext = createContext()
 
 export function ThemeProvider({children}) {
-  const [mode, setMode] = useState("light")
+  const [mode, setMode] = useState(() => {
+    // Инициализация темы из localStorage
+    return localStorage.getItem("theme") || "light"
+  })
 
   const toggleTheme = () => {
-    setMode((prevMode) => (prevMode === "light" ? "dark" : "light"))
+    setMode((prevMode) => {
+      const newMode = prevMode === "light" ? "dark" : "light"
+      localStorage.setItem("theme", newMode) // Сохранение в localStorage
+      return newMode
+    })
   }
+
+  useEffect(() => {
+    // Обновление localStorage при изменении темы
+    localStorage.setItem("theme", mode)
+  }, [mode])
 
   const theme = useMemo(
     () =>
