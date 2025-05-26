@@ -1,5 +1,3 @@
-import {ThemeProvider} from "@mui/material/styles"
-import theme from "./theme"
 import {CssBaseline} from "@mui/material"
 import {
   BrowserRouter as Router,
@@ -44,12 +42,12 @@ function AppContent() {
 
 function App() {
   return (
-    <ThemeProvider theme={theme}>
+    <>
       <CssBaseline />
       <Router>
         <AppContent /> {/* Вызов AppContent внутри Router */}
       </Router>
-    </ThemeProvider>
+    </>
   )
 }
 
