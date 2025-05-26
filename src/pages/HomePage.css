@@ -1,6 +1,7 @@
 .home-page {
   position: relative;
   height: 100vh;
+  background-color: #f7fcff;
 }
 
 .home-page-header {
@@ -32,6 +33,7 @@
 }
 
 .home-page-content-wrapper {
+  width: 100%;
   position: fixed;
   top: 0;
   bottom: 68px;
@@ -43,4 +45,18 @@
 
 .home-page-content {
   position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.home-page-section {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.home-page-lesson-card {
+  padding: 16px;
+  border-radius: 16px;
 }

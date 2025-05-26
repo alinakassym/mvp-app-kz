@@ -1,7 +1,35 @@
-import DiamondIcon from "@mui/icons-material/Diamond"
+import Box from "@mui/material/Box"
+import Card from "@mui/material/Card"
+import CardContent from "@mui/material/CardContent"
+import CardActions from "@mui/material/CardActions"
+import Typography from "@mui/material/Typography"
+import Divider from "@mui/material/Divider"
+import Button from "@mui/material/Button"
+import Chip from "@mui/material/Chip"
+import {Diamond as DiamondIcon} from "@mui/icons-material"
 import LocalFireDepartmentIcon from "@mui/icons-material/LocalFireDepartment"
 import "./HomePage.css"
+import {useEffect, useState} from "react"
+import testData from "./test.json"
+function fetchSections() {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve(testData.queryResult)
+    }, 500) // Simulate a delay
+  })
+}
+
+function useSections() {
+  const [sections, setSections] = useState([])
+
+  useEffect(() => {
+    fetchSections().then((data) => setSections(data))
+  }, [])
+
+  return sections
+}
 function HomePage() {
+  const sections = useSections()
   return (
     <div className="home-page">
       <div className="home-page-header">
@@ -16,14 +44,31 @@ function HomePage() {
       </div>
       <div className="home-page-content-wrapper">
         <div className="home-page-content">
-          Test test
-          {Array(50)
-            .fill(
-              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-            )
-            .map((paragraph, index) => (
-              <p key={index}>{paragraph}</p>
-            ))}
+          {sections.map((section, index) => (
+            <div key={index}>
+              <Divider sx={{mb: 2}}>
+                <Chip label={section.name} size="small" />
+              </Divider>
+              <div className="home-page-section">
+                {section.lessons.map((lesson, lessonIndex) => (
+                  <div
+                    key={lessonIndex}
+                    className="home-page-lesson-card"
+                    onClick={() => {
+                      window.location.href = "/ProfilePage"
+                    }}
+                  >
+                    <Typography variant="body1" component="div">
+                      {lesson.name}
+                    </Typography>
+                    <Typography variant="subtitle2" component="div">
+                      {lesson.content}
+                    </Typography>
+                  </div>
+                ))}
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </div>
