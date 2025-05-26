@@ -1,0 +1,158 @@
+{
+  "modules": [
+    {
+      "id": 1,
+      "name": "Module 1",
+      "order": 1
+    }
+  ],
+  "sections": [
+    {
+      "id": 1,
+      "moduleId": 1,
+      "name": "Section 1",
+      "order": 1
+    },
+    {
+      "id": 2,
+      "moduleId": 1,
+      "name": "Section 2",
+      "order": 2
+    },
+    {
+      "id": 3,
+      "moduleId": 1,
+      "name": "Section 3",
+      "order": 3
+    }
+  ],
+  "lessons": [
+    {
+      "id": 1,
+      "sectionId": 1,
+      "name": "Lesson 1",
+      "content": "This is the content of Lesson 1",
+      "order": 1
+    },
+    {
+      "id": 2,
+      "sectionId": 1,
+      "name": "Lesson 2",
+      "content": "This is the content of Lesson 2",
+      "order": 2
+    },
+    {
+      "id": 3,
+      "sectionId": 1,
+      "name": "Lesson 3",
+      "content": "This is the content of Lesson 3",
+      "order": 3
+    }
+  ],
+  "quizzes": [
+    {
+      "id": 1,
+      "lessonId": 1,
+      "question": "Question 1",
+      "type": "select_translation",
+      "options": [
+        {"id": 1, "text": "Paris", "isCorrect": true},
+        {"id": 2, "text": "London", "isCorrect": false},
+        {"id": 3, "text": "Berlin", "isCorrect": false}
+      ],
+      "order": 1
+    },
+    {
+      "id": 2,
+      "lessonId": 1,
+      "question": "Question 1",
+      "type": "match",
+      "options": [
+        {"id": 1, "text": "Paris", "isCorrect": true},
+        {"id": 2, "text": "London", "isCorrect": false},
+        {"id": 3, "text": "Berlin", "isCorrect": false}
+      ],
+      "order": 2
+    }
+  ],
+  "queryResult": [
+    {
+      "name": "Section 1",
+      "lessons": [
+        {
+          "id": 1,
+          "sectionId": 1,
+          "name": "Lesson 1",
+          "content": "This is the content of Lesson 1",
+          "order": 1
+        },
+        {
+          "id": 2,
+          "sectionId": 1,
+          "name": "Lesson 2",
+          "content": "This is the content of Lesson 2",
+          "order": 2
+        },
+        {
+          "id": 3,
+          "sectionId": 1,
+          "name": "Lesson 3",
+          "content": "This is the content of Lesson 3",
+          "order": 3
+        }
+      ]
+    },
+    {
+      "name": "Section 2",
+      "lessons": [
+        {
+          "id": 1,
+          "sectionId": 2,
+          "name": "Lesson 1",
+          "content": "This is the content of Lesson 1",
+          "order": 1
+        },
+        {
+          "id": 2,
+          "sectionId": 2,
+          "name": "Lesson 2",
+          "content": "This is the content of Lesson 2",
+          "order": 2
+        },
+        {
+          "id": 3,
+          "sectionId": 2,
+          "name": "Lesson 3",
+          "content": "This is the content of Lesson 3",
+          "order": 3
+        }
+      ]
+    },
+    {
+      "name": "Section 3",
+      "lessons": [
+        {
+          "id": 1,
+          "sectionId": 3,
+          "name": "Lesson 1",
+          "content": "This is the content of Lesson 1",
+          "order": 1
+        },
+        {
+          "id": 2,
+          "sectionId": 3,
+          "name": "Lesson 2",
+          "content": "This is the content of Lesson 2",
+          "order": 2
+        },
+        {
+          "id": 3,
+          "sectionId": 3,
+          "name": "Lesson 3",
+          "content": "This is the content of Lesson 3",
+          "order": 3
+        }
+      ]
+    }
+  ]
+}
