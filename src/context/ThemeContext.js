@@ -8,20 +8,18 @@ const ThemeContext = createContext()
 
 export function ThemeProvider({children}) {
   const [mode, setMode] = useState(() => {
-    // Инициализация темы из localStorage
     return localStorage.getItem("theme") || "light"
   })
 
   const toggleTheme = () => {
     setMode((prevMode) => {
       const newMode = prevMode === "light" ? "dark" : "light"
-      localStorage.setItem("theme", newMode) // Сохранение в localStorage
+      localStorage.setItem("theme", newMode)
       return newMode
     })
   }
 
   useEffect(() => {
-    // Обновление localStorage при изменении темы
     localStorage.setItem("theme", mode)
   }, [mode])
 
@@ -36,13 +34,17 @@ export function ThemeProvider({children}) {
           secondary: {
             main: "#9E9E9E",
           },
+          background: {
+            default: mode === "light" ? "#f7fcff" : "#15161A",
+            paper: mode === "light" ? "#ffffff" : "#15161A",
+          },
         },
       }),
     [mode]
   )
 
   return (
-    <ThemeContext.Provider value={{mode, toggleTheme}}>
+    <ThemeContext.Provider value={{mode, toggleTheme, ...theme}}>
       <MuiThemeProvider theme={theme}>{children}</MuiThemeProvider>
     </ThemeContext.Provider>
   )

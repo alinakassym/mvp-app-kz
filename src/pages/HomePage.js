@@ -1,10 +1,6 @@
-import Box from "@mui/material/Box"
-import Card from "@mui/material/Card"
-import CardContent from "@mui/material/CardContent"
-import CardActions from "@mui/material/CardActions"
+import {useTheme} from "../context/ThemeContext"
 import Typography from "@mui/material/Typography"
 import Divider from "@mui/material/Divider"
-import Button from "@mui/material/Button"
 import Chip from "@mui/material/Chip"
 import {Diamond as DiamondIcon} from "@mui/icons-material"
 import LocalFireDepartmentIcon from "@mui/icons-material/LocalFireDepartment"
@@ -29,10 +25,14 @@ function useSections() {
   return sections
 }
 function HomePage() {
+  const theme = useTheme()
   const sections = useSections()
   return (
     <div className="home-page">
-      <div className="home-page-header">
+      <div
+        className="home-page-header"
+        style={{backgroundColor: theme.palette.background.paper}}
+      >
         <div className="home-page-header-icon-item" style={{color: "#3A94E7"}}>
           <DiamondIcon />
           <span>451</span>
