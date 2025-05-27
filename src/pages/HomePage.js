@@ -1,12 +1,18 @@
 import {useTheme} from "../context/ThemeContext"
-import Typography from "@mui/material/Typography"
+import Box from "@mui/material/Box"
+import Button from "@mui/material/Button"
 import Divider from "@mui/material/Divider"
 import Chip from "@mui/material/Chip"
+import Stepper from "@mui/material/Stepper"
+import Step from "@mui/material/Step"
+import StepLabel from "@mui/material/StepLabel"
+import StepContent from "@mui/material/StepContent"
 import {Diamond as DiamondIcon} from "@mui/icons-material"
 import LocalFireDepartmentIcon from "@mui/icons-material/LocalFireDepartment"
 import "./HomePage.css"
 import {useEffect, useState} from "react"
 import testData from "./test.json"
+
 function fetchSections() {
   return new Promise((resolve) => {
     setTimeout(() => {
@@ -27,6 +33,14 @@ function useSections() {
 function HomePage() {
   const theme = useTheme()
   const sections = useSections()
+
+  const [activeSection] = useState(1)
+  const [activeStep, setActiveStep] = useState(0)
+
+  const handleNext = () => {
+    setActiveStep((prevActiveStep) => prevActiveStep + 1)
+  }
+
   return (
     <div className="home-page">
       <div
@@ -50,7 +64,31 @@ function HomePage() {
                 <Chip label={section.name} size="small" />
               </Divider>
               <div className="home-page-section">
-                {section.lessons.map((lesson, lessonIndex) => (
+                <Stepper
+                  activeStep={activeSection === section.id ? activeStep : -1}
+                  orientation="vertical"
+                >
+                  {section.lessons.map((lesson) => (
+                    <Step key={lesson.id}>
+                      <StepLabel>{lesson.name}</StepLabel>
+                      <StepContent>
+                        {/* <Typography>{lesson.content}</Typography> */}
+                        <Box sx={{mb: 2}}>
+                          <Button sx={{mt: 1, mr: 1}}>Начать урок</Button>
+                          <Button
+                            variant="contained"
+                            onClick={handleNext}
+                            sx={{mt: 1, mr: 1}}
+                          >
+                            Пропустить
+                          </Button>
+                        </Box>
+                      </StepContent>
+                    </Step>
+                  ))}
+                </Stepper>
+                {/* {section.lessons.map((lesson, lessonIndex) => (
+                  
                   <div
                     key={lessonIndex}
                     className="home-page-lesson-card"
@@ -65,7 +103,7 @@ function HomePage() {
                       {lesson.content}
                     </Typography>
                   </div>
-                ))}
+                ))} */}
               </div>
             </div>
           ))}
