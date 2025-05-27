@@ -34,7 +34,7 @@
   width: 100%;
   position: fixed;
   top: 73px;
-  bottom: 68px;
+  bottom: 69px;
   padding: 20px;
   overflow: hidden;
   overflow-y: auto;
@@ -45,13 +45,12 @@
   position: relative;
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 16px;
 }
 
 .home-page-section {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
+  border: 1px solid #d0efff;
+  box-shadow: 0px 2px 30px rgba(58, 148, 231, 0.15);
 }
 
 .home-page-lesson-card {
