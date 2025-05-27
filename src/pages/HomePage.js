@@ -72,7 +72,6 @@ function HomePage() {
                     <Step key={lesson.id}>
                       <StepLabel>{lesson.name}</StepLabel>
                       <StepContent>
-                        {/* <Typography>{lesson.content}</Typography> */}
                         <Box sx={{mb: 2}}>
                           <Button sx={{mt: 1, mr: 1}}>Начать урок</Button>
                           <Button
@@ -87,23 +86,6 @@ function HomePage() {
                     </Step>
                   ))}
                 </Stepper>
-                {/* {section.lessons.map((lesson, lessonIndex) => (
-                  
-                  <div
-                    key={lessonIndex}
-                    className="home-page-lesson-card"
-                    onClick={() => {
-                      window.location.href = "/ProfilePage"
-                    }}
-                  >
-                    <Typography variant="body1" component="div">
-                      {lesson.name}
-                    </Typography>
-                    <Typography variant="subtitle2" component="div">
-                      {lesson.content}
-                    </Typography>
-                  </div>
-                ))} */}
               </div>
             </div>
           ))}
