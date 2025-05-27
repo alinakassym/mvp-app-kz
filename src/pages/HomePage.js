@@ -12,12 +12,13 @@ import LocalFireDepartmentIcon from "@mui/icons-material/LocalFireDepartment"
 import "./HomePage.css"
 import {useEffect, useState} from "react"
 import testData from "./test.json"
+import {useNavigate} from "react-router-dom"
 
 function fetchSections() {
   return new Promise((resolve) => {
     setTimeout(() => {
       resolve(testData.queryResult)
-    }, 500)
+    }, 5)
   })
 }
 
@@ -38,6 +39,12 @@ function HomePage() {
 
   const handleNext = () => {
     setActiveStep((prevActiveStep) => prevActiveStep + 1)
+  }
+
+  const navigate = useNavigate()
+
+  const handleLessonStart = (lessonId) => {
+    navigate(`/lesson/${lessonId}`)
   }
 
   return (
@@ -80,7 +87,12 @@ function HomePage() {
                     <StepLabel>{lesson.name}</StepLabel>
                     <StepContent>
                       <Box sx={{mb: 2}}>
-                        <Button sx={{mt: 1, mr: 1}}>Начать урок</Button>
+                        <Button
+                          sx={{mt: 1, mr: 1}}
+                          onClick={() => handleLessonStart(lesson.id)}
+                        >
+                          Начать урок
+                        </Button>
                         <Button
                           variant="contained"
                           onClick={handleNext}
