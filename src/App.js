@@ -8,15 +8,17 @@ import {
 import LoginPage from "./pages/LoginPage"
 import HomePage from "./pages/HomePage"
 import ProfilePage from "./pages/ProfilePage"
+import LessonPage from "./pages/LessonPage"
 import PrivateRoute from "./components/PrivateRoute"
 import BottomNavigationBar from "./components/BottomNavigationBar"
 
 function AppContent() {
   const location = useLocation()
+  const state = location.state || {}
 
   return (
     <>
-      <Routes>
+      <Routes location={state.backgroundLocation || location}>
         <Route path="/login" element={<LoginPage />} />
         <Route
           path="/"
@@ -34,8 +36,32 @@ function AppContent() {
             </PrivateRoute>
           }
         />
+        <Route
+          path="/lesson/:lessonId"
+          element={
+            <PrivateRoute>
+              <LessonPage />
+            </PrivateRoute>
+          }
+        />
       </Routes>
-      {location.pathname !== "/login" && <BottomNavigationBar />}
+
+      {/* Модальное окно для LessonPage */}
+      {state.backgroundLocation && (
+        <Routes>
+          <Route
+            path="/lesson/:lessonId"
+            element={
+              <PrivateRoute>
+                <LessonPage />
+              </PrivateRoute>
+            }
+          />
+        </Routes>
+      )}
+
+      {location.pathname !== "/login" &&
+        !location.pathname.startsWith("/lesson/") && <BottomNavigationBar />}
     </>
   )
 }
