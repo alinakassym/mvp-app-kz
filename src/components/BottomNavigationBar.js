@@ -3,7 +3,7 @@ import {BottomNavigation, BottomNavigationAction} from "@mui/material"
 import {useNavigate} from "react-router-dom"
 import {useAuth} from "../context/AuthContext"
 import {ReactComponent as HomeIcon} from "../assets/icons/home.svg"
-import {ReactComponent as UserIcon} from "../assets/icons/circle-user.svg"
+import {ReactComponent as UserIcon} from "../assets/icons/user.svg"
 import "./BottomNavigationBar.css"
 
 function BottomNavigationBar() {
@@ -19,32 +19,23 @@ function BottomNavigationBar() {
 
   return (
     <div className="bottom-navigation-bar-wrapper">
-      <div className="bottom-navigation-bar">
-        <BottomNavigation
-          sx={{
-            display: "grid",
-            gridTemplateColumns: "repeat(2, 1fr)",
-            gap: 10,
+      <BottomNavigation
+        sx={{height: 68}}
+        value={value}
+        onChange={(event, newValue) => handleNavigation(newValue)}
+      >
+        <BottomNavigationAction
+          sx={{pb: 2}}
+          icon={<HomeIcon style={{height: 28, width: 28}} />}
+        />
+        <BottomNavigationAction
+          sx={{pb: 2}}
+          style={{
+            fill: value === 1 ? "#3A94E7" : "#9E9E9E",
           }}
-          value={value}
-          onChange={(event, newValue) => handleNavigation(newValue)}
-        >
-          <BottomNavigationAction
-            sx={{maxWidth: "50px", borderRadius: 28}}
-            style={{
-              fill: value === 0 ? "#3A94E7" : "#9E9E9E",
-            }}
-            icon={<HomeIcon style={{width: 28, height: 28}} />}
-          />
-          <BottomNavigationAction
-            sx={{maxWidth: "50px", borderRadius: 28}}
-            style={{
-              fill: value === 1 ? "#3A94E7" : "#9E9E9E",
-            }}
-            icon={<UserIcon style={{width: 28, height: 28}} />}
-          />
-        </BottomNavigation>
-      </div>
+          icon={<UserIcon style={{height: 28, width: 28}} />}
+        />
+      </BottomNavigation>
     </div>
   )
 }
