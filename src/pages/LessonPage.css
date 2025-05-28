@@ -39,3 +39,39 @@
   padding: 20px 20px 32px 20px;
   display: flex;
 }
+
+.quiz-option {
+  border: 2px solid transparent;
+  transition: all 0.25s ease !important;
+  cursor: pointer;
+}
+
+.quiz-option.selected {
+  border: 2px solid #2196f3;
+  transform: scale(1.02);
+}
+
+.quiz-option.correct {
+  /* background-color: #e8f5e9; light green */
+  border: 2px solid #4caf50;
+}
+
+.quiz-option.incorrect {
+  /* background-color: #ffebee; light red */
+  border: 2px solid #f44336;
+}
+
+.quiz-option.animate {
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

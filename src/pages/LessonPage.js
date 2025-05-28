@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from "react"
+import {useTheme} from "../context/ThemeContext"
 import {
   Button,
   Card,
@@ -14,6 +15,8 @@ import quizzesData from "../static/lesson1.json"
 import "./LessonPage.css"
 
 function LessonPage() {
+  const theme = useTheme()
+  const [palette] = useState(theme.palette)
   const navigate = useNavigate()
   const {lessonId} = useParams()
   const parsedLessonId = Number(lessonId)
@@ -45,9 +48,7 @@ function LessonPage() {
 
   const handleCheckAnswer = () => {
     if (!selectedOption) return
-
-    const isCorrect = selectedOption.isCorrect
-    setFeedback(isCorrect ? "Правильно!" : "Неправильно")
+    setFeedback(selectedOption.isCorrect ? "Правильно!" : "Неправильно")
     setIsChecked(true)
   }
 
@@ -66,6 +67,7 @@ function LessonPage() {
     } else {
       setIsCompleted(true)
     }
+
     setSelectedOption(null)
     setIsChecked(false)
     setFeedback(null)
@@ -107,6 +109,7 @@ function LessonPage() {
         </IconButton>
         <Box sx={{width: "100%"}}>
           <LinearProgress
+            sx={{height: 8, borderRadius: 2}}
             className="lesson-progress"
             variant="determinate"
             value={((currentIndex + 1) / quizzes.length) * 100}
@@ -125,7 +128,12 @@ function LessonPage() {
         {currentQuiz.options.map((option) => (
           <Card
             key={option.id}
-            className={`quiz-option ${
+            sx={{borderRadius: 3}}
+            variant="custom1"
+            style={{
+              backgroundColor: theme.mode === "dark" && palette.primary.light,
+            }}
+            className={`quiz-option animate ${
               selectedOption?.id === option.id ? "selected" : ""
             } ${isChecked && option.isCorrect ? "correct" : ""} ${
               isChecked && selectedOption?.id === option.id && !option.isCorrect
