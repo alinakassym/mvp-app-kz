@@ -44,6 +44,60 @@ export function ThemeProvider({children}) {
             paper: mode === "light" ? "#ffffff" : "#15161A",
           },
         },
+        components: {
+          MuiCard: {
+            styleOverrides: {
+              root: {
+                variants: [
+                  {
+                    props: {variant: "custom1"},
+                    style: {
+                      boxShadow:
+                        mode === "light"
+                          ? "0px 2px 30px rgba(58, 148, 231, 0.1)"
+                          : "none",
+                    },
+                  },
+                  {
+                    props: {variant: "custom2"},
+                    style: {
+                      boxShadow:
+                        mode === "light"
+                          ? "0px 2px 30px rgba(58, 148, 231, 0.15)"
+                          : "none",
+                    },
+                  },
+                ],
+              },
+            },
+          },
+          MuiPaper: {
+            styleOverrides: {
+              root: {
+                variants: [
+                  {
+                    props: {variant: "custom1"},
+                    style: {
+                      boxShadow:
+                        mode === "light"
+                          ? "0px 2px 30px rgba(58, 148, 231, 0.1)"
+                          : "none",
+                    },
+                  },
+                  {
+                    props: {variant: "custom2"},
+                    style: {
+                      boxShadow:
+                        mode === "light"
+                          ? "0px 2px 30px rgba(58, 148, 231, 0.15)"
+                          : "none",
+                    },
+                  },
+                ],
+              },
+            },
+          },
+        },
       }),
     [mode]
   )
