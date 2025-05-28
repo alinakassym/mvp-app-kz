@@ -33,8 +33,8 @@ function useSections() {
 }
 function HomePage() {
   const theme = useTheme()
-  console.log("theme mode: ", theme.mode)
-  const [palette] = useState(theme.colorSchemes[theme.mode].palette)
+  console.log("theme mode: ", theme)
+  const [palette] = useState(theme.palette)
 
   const sections = useSections()
   const [activeSection] = useState(1)
@@ -63,7 +63,6 @@ function HomePage() {
           <DiamondIcon />
           <span>451</span>
         </div>
-        <p>{theme.mode}</p>
         <div
           className="home-page-header-icon-item"
           style={{color: palette.warning.main}}

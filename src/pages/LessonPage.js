@@ -16,7 +16,7 @@ import "./LessonPage.css"
 
 function LessonPage() {
   const theme = useTheme()
-  const [palette] = useState(theme.colorSchemes[theme.mode].palette)
+  const [palette] = useState(theme.palette)
   const navigate = useNavigate()
   const {lessonId} = useParams()
   const parsedLessonId = Number(lessonId)
@@ -91,7 +91,7 @@ function LessonPage() {
         <div className="lesson-page-content">
           <Typography variant="h4">Поздравляем!</Typography>
           <Typography variant="h6" gutterBottom>
-            Вы завершили урок {lessonId}.
+            Вы завершили урок {lessonId + 1}.
           </Typography>
         </div>
         <div className="lesson-page-footer">
@@ -170,7 +170,7 @@ function LessonPage() {
           {feedback && (
             <Typography
               variant="subtitle1"
-              sx={{mb: 1}}
+              sx={{mb: 1, fontWeight: "bold"}}
               color={selectedOption?.isCorrect ? "green" : "error"}
             >
               {feedback}
