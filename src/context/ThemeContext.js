@@ -26,24 +26,7 @@ export function ThemeProvider({children}) {
   const theme = useMemo(
     () =>
       createTheme({
-        palette: {
-          mode,
-          primary: {
-            light: mode === "light" ? "#D0EFFF" : "#1F2025",
-            main: "#3A94E7",
-          },
-          secondary: {
-            light: mode === "light" ? "#FFFFFF" : "#0e253a", //"#0C0C0F",
-            main: "#9E9E9E",
-          },
-          warning: {
-            main: "#F3AE29",
-          },
-          background: {
-            default: mode === "light" ? "#f7fcff" : "#15161A",
-            paper: mode === "light" ? "#ffffff" : "#15161A",
-          },
-        },
+        cssVariables: true,
         components: {
           MuiCard: {
             styleOverrides: {
@@ -94,6 +77,64 @@ export function ThemeProvider({children}) {
                     },
                   },
                 ],
+              },
+            },
+          },
+        },
+        colorSchemes: {
+          light: {
+            palette: {
+              mode,
+              primary: {
+                light: "#D0EFFF",
+                main: "#3A94E7",
+              },
+              secondary: {
+                light: "#FFFFFF", //"#0C0C0F",
+                main: "#9E9E9E",
+              },
+              success: {
+                main: "#58C11E",
+                light: "#EDFDE4",
+              },
+              warning: {
+                main: "#F3AE29",
+              },
+              error: {
+                main: "#f44336",
+                light: "#fcd0cd",
+              },
+              background: {
+                default: "#f7fcff",
+                paper: "#FFFFFF",
+              },
+            },
+          },
+          dark: {
+            palette: {
+              mode,
+              primary: {
+                light: "#1F2025",
+                main: "#3A94E7",
+              },
+              secondary: {
+                light: "#0e253a", //"#0C0C0F",
+                main: "#9E9E9E",
+              },
+              success: {
+                main: "#58C11E",
+                light: "#EDFDE4",
+              },
+              warning: {
+                main: "#F3AE29",
+              },
+              error: {
+                main: "#f44336",
+                light: "#fcd0cd",
+              },
+              background: {
+                default: "#15161A",
+                paper: "#15161A",
               },
             },
           },
