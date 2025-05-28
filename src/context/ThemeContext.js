@@ -29,10 +29,15 @@ export function ThemeProvider({children}) {
         palette: {
           mode,
           primary: {
+            light: mode === "light" ? "#D0EFFF" : "#1F2025",
             main: "#3A94E7",
           },
           secondary: {
+            light: mode === "light" ? "#FFFFFF" : "#0e253a", //"#0C0C0F",
             main: "#9E9E9E",
+          },
+          warning: {
+            main: "#F3AE29",
           },
           background: {
             default: mode === "light" ? "#f7fcff" : "#15161A",

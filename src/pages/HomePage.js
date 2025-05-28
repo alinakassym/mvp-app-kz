@@ -34,6 +34,7 @@ function useSections() {
 function HomePage() {
   const theme = useTheme()
   const sections = useSections()
+  const [palette] = useState(theme.palette)
   const [activeSection] = useState(1)
   const [activeStep, setActiveStep] = useState(0)
 
@@ -51,13 +52,19 @@ function HomePage() {
     <div className="home-page">
       <div
         className="home-page-header"
-        style={{backgroundColor: theme.palette.background.paper}}
+        style={{backgroundColor: palette.background.paper}}
       >
-        <div className="home-page-header-icon-item" style={{color: "#3A94E7"}}>
+        <div
+          className="home-page-header-icon-item"
+          style={{color: palette.primary.main}}
+        >
           <DiamondIcon />
           <span>451</span>
         </div>
-        <div className="home-page-header-icon-item" style={{color: "#F3AE29"}}>
+        <div
+          className="home-page-header-icon-item"
+          style={{color: palette.warning.main}}
+        >
           <LocalFireDepartmentIcon />
           <span>3</span>
         </div>
@@ -68,11 +75,18 @@ function HomePage() {
             <Paper
               key={index}
               elevation={0}
-              sx={{p: 3, borderRadius: 6}}
+              sx={{
+                p: 3,
+                borderRadius: 6,
+                borderWidth: 1,
+                borderColor: palette.primary.light,
+              }}
               className="home-page-section"
               style={{
                 backgroundColor:
-                  activeSection !== section.id ? "#D0EFFF" : "#FFFFFF",
+                  activeSection !== section.id
+                    ? palette.primary.light
+                    : palette.secondary.light,
               }}
             >
               <Typography variant="subtitle1" gutterBottom>
@@ -88,16 +102,13 @@ function HomePage() {
                     <StepContent>
                       <Box sx={{mb: 2}}>
                         <Button
+                          variant="contained"
                           sx={{mt: 1, mr: 1}}
                           onClick={() => handleLessonStart(lesson.id)}
                         >
                           Начать урок
                         </Button>
-                        <Button
-                          variant="contained"
-                          onClick={handleNext}
-                          sx={{mt: 1, mr: 1}}
-                        >
+                        <Button onClick={handleNext} sx={{mt: 1, mr: 1}}>
                           Пропустить
                         </Button>
                       </Box>
