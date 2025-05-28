@@ -74,14 +74,13 @@ function HomePage() {
           {sections.map((section, index) => (
             <Paper
               key={index}
-              elevation={0}
+              variant="custom2"
               sx={{
                 p: 3,
                 borderRadius: 6,
                 borderWidth: 1,
                 borderColor: palette.primary.light,
               }}
-              className="home-page-section"
               style={{
                 backgroundColor:
                   activeSection !== section.id

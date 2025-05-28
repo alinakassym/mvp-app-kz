@@ -48,10 +48,6 @@
   gap: 16px;
 }
 
-.home-page-section {
-  box-shadow: 0px 2px 30px rgba(58, 148, 231, 0.15);
-}
-
 .home-page-lesson-card {
   padding: 16px;
   border-radius: 16px;
