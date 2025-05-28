@@ -1,9 +1,10 @@
 import React, {useState, useEffect} from "react"
 import {
-  Box,
+  Button,
   Card,
   CardContent,
   Typography,
+  Box,
   LinearProgress,
   IconButton,
 } from "@mui/material"
@@ -21,6 +22,8 @@ function LessonPage() {
   const [retryQueue, setRetryQueue] = useState([])
   const [isCompleted, setIsCompleted] = useState(false)
   const [feedback, setFeedback] = useState(null)
+  const [selectedOption, setSelectedOption] = useState(null)
+  const [isChecked, setIsChecked] = useState(false)
 
   useEffect(() => {
     const lessonQuizzes = quizzesData.quizzes.filter(
@@ -30,30 +33,42 @@ function LessonPage() {
     setCurrentIndex(0)
     setRetryQueue([])
     setIsCompleted(false)
+    setSelectedOption(null)
+    setIsChecked(false)
   }, [parsedLessonId])
 
   const currentQuiz = quizzes[currentIndex]
 
-  const handleAnswer = (isCorrect) => {
+  const handleSelect = (option) => {
+    if (!isChecked) setSelectedOption(option)
+  }
+
+  const handleCheckAnswer = () => {
+    if (!selectedOption) return
+
+    const isCorrect = selectedOption.isCorrect
     setFeedback(isCorrect ? "Правильно!" : "Неправильно")
+    setIsChecked(true)
+  }
 
-    setTimeout(() => {
-      setFeedback(null)
-      if (!isCorrect) {
-        setRetryQueue((prev) => [...prev, currentQuiz])
-      }
+  const handleNext = () => {
+    if (!selectedOption?.isCorrect) {
+      setRetryQueue((prev) => [...prev, currentQuiz])
+    }
 
-      const nextIndex = currentIndex + 1
-      if (nextIndex < quizzes.length) {
-        setCurrentIndex(nextIndex)
-      } else if (retryQueue.length > 0) {
-        setQuizzes(retryQueue)
-        setCurrentIndex(0)
-        setRetryQueue([])
-      } else {
-        setIsCompleted(true)
-      }
-    }, 600)
+    const nextIndex = currentIndex + 1
+    if (nextIndex < quizzes.length) {
+      setCurrentIndex(nextIndex)
+    } else if (retryQueue.length > 0) {
+      setQuizzes(retryQueue)
+      setCurrentIndex(0)
+      setRetryQueue([])
+    } else {
+      setIsCompleted(true)
+    }
+    setSelectedOption(null)
+    setIsChecked(false)
+    setFeedback(null)
   }
 
   if (!currentQuiz && !isCompleted) return <div>Загрузка урока...</div>
@@ -110,8 +125,14 @@ function LessonPage() {
         {currentQuiz.options.map((option) => (
           <Card
             key={option.id}
-            className="quiz-option"
-            onClick={() => handleAnswer(option.isCorrect)}
+            className={`quiz-option ${
+              selectedOption?.id === option.id ? "selected" : ""
+            } ${isChecked && option.isCorrect ? "correct" : ""} ${
+              isChecked && selectedOption?.id === option.id && !option.isCorrect
+                ? "incorrect"
+                : ""
+            }`}
+            onClick={() => handleSelect(option)}
           >
             <CardContent>
               <Typography>{option.text}</Typography>
@@ -121,7 +142,27 @@ function LessonPage() {
       </div>
 
       <div className="lesson-page-footer">
-        {feedback && <Typography variant="subtitle1">{feedback}</Typography>}
+        <Box sx={{display: "flex", flexDirection: "column", width: "100%"}}>
+          {feedback && (
+            <Typography
+              variant="subtitle1"
+              sx={{mb: 1}}
+              color={selectedOption?.isCorrect ? "green" : "error"}
+            >
+              {feedback}
+            </Typography>
+          )}
+          {selectedOption && !isChecked && (
+            <Button variant="contained" onClick={handleCheckAnswer}>
+              Проверить
+            </Button>
+          )}
+          {isChecked && (
+            <Button variant="contained" onClick={handleNext}>
+              Далее
+            </Button>
+          )}
+        </Box>
       </div>
     </div>
   )
