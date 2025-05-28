@@ -53,26 +53,80 @@
     {
       "id": 1,
       "lessonId": 1,
-      "question": "Question 1",
+      "question": "Сәлем",
+      "description": "Выберите правильный перевод",
       "type": "select_translation",
       "options": [
-        {"id": 1, "text": "Paris", "isCorrect": true},
-        {"id": 2, "text": "London", "isCorrect": false},
-        {"id": 3, "text": "Berlin", "isCorrect": false}
+        {"id": 1, "text": "Прощайте", "isCorrect": false},
+        {"id": 3, "text": "Доброе утро", "isCorrect": false},
+        {"id": 4, "text": "Привет", "isCorrect": true}
       ],
-      "order": 1
+      "order": 0
     },
     {
       "id": 2,
       "lessonId": 1,
-      "question": "Question 1",
-      "type": "match",
+      "question": "Қайырлы таң",
+      "description": "Выберите правильный перевод",
+      "type": "select_translation",
       "options": [
-        {"id": 1, "text": "Paris", "isCorrect": true},
-        {"id": 2, "text": "London", "isCorrect": false},
-        {"id": 3, "text": "Berlin", "isCorrect": false}
+        {"id": 1, "text": "Прощайте", "isCorrect": false},
+        {"id": 3, "text": "Доброе утро", "isCorrect": true},
+        {"id": 4, "text": "Привет", "isCorrect": false}
+      ],
+      "order": 1
+    },
+    {
+      "id": 3,
+      "lessonId": 1,
+      "question": "Сәлеметсіз бе",
+      "description": "Выберите правильный перевод",
+      "type": "select_translation",
+      "options": [
+        {"id": 5, "text": "Добрый вечер", "isCorrect": false},
+        {"id": 6, "text": "Здравствуйте", "isCorrect": true},
+        {"id": 7, "text": "До свиданья", "isCorrect": false}
       ],
       "order": 2
+    },
+    {
+      "id": 4,
+      "lessonId": 1,
+      "question": "Қайырлы кеш",
+      "description": "Выберите правильный перевод",
+      "type": "select_translation",
+      "options": [
+        {"id": 8, "text": "Добрый вечер", "isCorrect": true},
+        {"id": 9, "text": "Здравствуйте", "isCorrect": false},
+        {"id": 10, "text": "Привет", "isCorrect": false}
+      ],
+      "order": 3
+    },
+    {
+      "id": 5,
+      "lessonId": 1,
+      "question": "Сау болыңыз",
+      "description": "Выберите правильный перевод",
+      "type": "select_translation",
+      "options": [
+        {"id": 11, "text": "До свиданья", "isCorrect": true},
+        {"id": 12, "text": "Добрый вечер", "isCorrect": false},
+        {"id": 13, "text": "Доброе утро", "isCorrect": false}
+      ],
+      "order": 4
+    },
+    {
+      "id": 6,
+      "lessonId": 1,
+      "question": "Қош болыңыз",
+      "description": "Выберите правильный перевод",
+      "type": "select_translation",
+      "options": [
+        {"id": 14, "text": "Прощайте", "isCorrect": true},
+        {"id": 15, "text": "Здравствуйте!", "isCorrect": false},
+        {"id": 16, "text": "Привет", "isCorrect": false}
+      ],
+      "order": 5
     }
   ],
   "queryResult": [
