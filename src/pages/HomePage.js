@@ -33,8 +33,9 @@ function useSections() {
 }
 function HomePage() {
   const theme = useTheme()
+  const [palette] = useState(theme.colorSchemes[theme.mode].palette)
+
   const sections = useSections()
-  const [palette] = useState(theme.palette)
   const [activeSection] = useState(1)
   const [activeStep, setActiveStep] = useState(0)
 

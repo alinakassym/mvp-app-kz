@@ -16,7 +16,7 @@ import "./LessonPage.css"
 
 function LessonPage() {
   const theme = useTheme()
-  const [palette] = useState(theme.palette)
+  const [palette] = useState(theme.colorSchemes[theme.mode].palette)
   const navigate = useNavigate()
   const {lessonId} = useParams()
   const parsedLessonId = Number(lessonId)
@@ -132,14 +132,18 @@ function LessonPage() {
             variant="custom1"
             style={{
               backgroundColor: theme.mode === "dark" && palette.primary.light,
+              borderColor:
+                !isChecked && selectedOption?.id === option.id
+                  ? palette.primary.main
+                  : isChecked && option.isCorrect
+                  ? palette.success.main
+                  : isChecked &&
+                    selectedOption?.id === option.id &&
+                    !option.isCorrect
+                  ? palette.error.main
+                  : "",
             }}
-            className={`quiz-option animate ${
-              selectedOption?.id === option.id ? "selected" : ""
-            } ${isChecked && option.isCorrect ? "correct" : ""} ${
-              isChecked && selectedOption?.id === option.id && !option.isCorrect
-                ? "incorrect"
-                : ""
-            }`}
+            className="quiz-option animate"
             onClick={() => handleSelect(option)}
           >
             <CardContent>
@@ -149,7 +153,19 @@ function LessonPage() {
         ))}
       </div>
 
-      <div className="lesson-page-footer">
+      <div
+        className="lesson-page-footer"
+        style={{
+          backgroundColor:
+            !selectedOption && !isChecked
+              ? ""
+              : isChecked && selectedOption && selectedOption?.isCorrect
+              ? palette.success.light
+              : isChecked && selectedOption && !selectedOption?.isCorrect
+              ? palette.error.light
+              : "",
+        }}
+      >
         <Box sx={{display: "flex", flexDirection: "column", width: "100%"}}>
           {feedback && (
             <Typography
@@ -161,12 +177,21 @@ function LessonPage() {
             </Typography>
           )}
           {selectedOption && !isChecked && (
-            <Button variant="contained" onClick={handleCheckAnswer}>
+            <Button
+              size="large"
+              variant="contained"
+              onClick={handleCheckAnswer}
+            >
               Проверить
             </Button>
           )}
           {isChecked && (
-            <Button variant="contained" onClick={handleNext}>
+            <Button
+              size="large"
+              color={selectedOption?.isCorrect ? "success" : "error"}
+              variant="contained"
+              onClick={handleNext}
+            >
               Далее
             </Button>
           )}

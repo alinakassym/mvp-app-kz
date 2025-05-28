@@ -22,7 +22,7 @@
   width: 100%;
   position: fixed;
   top: 73px;
-  bottom: 69px;
+  bottom: 125px;
   padding: 20px;
   display: flex;
   flex-direction: column;
@@ -47,18 +47,7 @@
 }
 
 .quiz-option.selected {
-  border: 2px solid #2196f3;
   transform: scale(1.02);
-}
-
-.quiz-option.correct {
-  /* background-color: #e8f5e9; light green */
-  border: 2px solid #4caf50;
-}
-
-.quiz-option.incorrect {
-  /* background-color: #ffebee; light red */
-  border: 2px solid #f44336;
 }
 
 .quiz-option.animate {
