@@ -27,7 +27,29 @@ export function ThemeProvider({children}) {
     () =>
       createTheme({
         cssVariables: true,
+        typography: {
+          fontFamily: [
+            "-apple-system",
+            "BlinkMacSystemFont",
+            '"Segoe UI"',
+            "Roboto",
+            '"Helvetica Neue"',
+            "Arial",
+            "sans-serif",
+            '"Apple Color Emoji"',
+            '"Segoe UI Emoji"',
+            '"Segoe UI Symbol"',
+          ].join(","),
+        },
         components: {
+          MuiButton: {
+            styleOverrides: {
+              root: {
+                borderRadius: "8px",
+                fontWeight: 600,
+              },
+            },
+          },
           MuiCard: {
             styleOverrides: {
               root: {

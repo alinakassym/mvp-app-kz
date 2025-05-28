@@ -33,6 +33,7 @@ function useSections() {
 }
 function HomePage() {
   const theme = useTheme()
+  console.log("theme mode: ", theme.mode)
   const [palette] = useState(theme.colorSchemes[theme.mode].palette)
 
   const sections = useSections()
@@ -62,6 +63,7 @@ function HomePage() {
           <DiamondIcon />
           <span>451</span>
         </div>
+        <p>{theme.mode}</p>
         <div
           className="home-page-header-icon-item"
           style={{color: palette.warning.main}}
@@ -89,7 +91,7 @@ function HomePage() {
                     : palette.secondary.light,
               }}
             >
-              <Typography variant="subtitle1" gutterBottom>
+              <Typography variant="h6" gutterBottom>
                 {section.name}
               </Typography>
               <Stepper
