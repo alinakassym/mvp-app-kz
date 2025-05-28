@@ -19,7 +19,7 @@ function ProfilePage() {
       <h2>Профиль</h2>
       <p>Email: {user?.email}</p>
       <Button color="inherit" onClick={toggleTheme}>
-        {mode === "light" ? "Dark Mode" : "Light Mode"}
+        {mode === "dark" ? "Dark Mode" : "Light Mode"}
       </Button>
       <button onClick={handleLogout}>Выйти</button>
     </div>

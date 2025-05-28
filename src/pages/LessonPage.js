@@ -91,7 +91,7 @@ function LessonPage() {
         <div className="lesson-page-content">
           <Typography variant="h4">Поздравляем!</Typography>
           <Typography variant="h6" gutterBottom>
-            Вы завершили урок {lessonId + 1}.
+            Вы завершили урок {Number(lessonId) + 1}.
           </Typography>
         </div>
         <div className="lesson-page-footer">

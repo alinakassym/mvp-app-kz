@@ -7,8 +7,14 @@ import {
 const ThemeContext = createContext()
 
 export function ThemeProvider({children}) {
+  const getSystemTheme = () =>
+    window.matchMedia &&
+    window.matchMedia("(prefers-color-scheme: dark)").matches
+      ? "dark"
+      : "light"
+
   const [mode, setMode] = useState(() => {
-    return localStorage.getItem("theme") || "light"
+    return getSystemTheme() || localStorage.getItem("theme") || "light"
   })
 
   const toggleTheme = () => {
