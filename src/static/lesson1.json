@@ -36,7 +36,7 @@
       "options": [
         {"id": 5, "text": "Добрый вечер", "isCorrect": false},
         {"id": 6, "text": "Здравствуйте", "isCorrect": true},
-        {"id": 7, "text": "До свиданья", "isCorrect": false}
+        {"id": 7, "text": "До свидания", "isCorrect": false}
       ],
       "order": 2
     },
@@ -60,7 +60,7 @@
       "description": "Выберите правильный перевод",
       "type": "select_translation",
       "options": [
-        {"id": 11, "text": "До свиданья", "isCorrect": true},
+        {"id": 11, "text": "До свидания", "isCorrect": true},
         {"id": 12, "text": "Добрый вечер", "isCorrect": false},
         {"id": 13, "text": "Доброе утро", "isCorrect": false}
       ],
