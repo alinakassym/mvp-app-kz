@@ -33,7 +33,6 @@ function useSections() {
 }
 function HomePage() {
   const theme = useTheme()
-  console.log("theme mode: ", theme)
   const [palette] = useState(theme.palette)
 
   const sections = useSections()
