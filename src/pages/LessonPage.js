@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from "react"
+import React, {useState, useEffect, useRef} from "react"
 import {useTheme} from "../context/ThemeContext"
 import {
   Button,
@@ -15,6 +15,7 @@ import quizzesData from "../static/lesson1.json"
 import "./LessonPage.css"
 
 function LessonPage() {
+  const audioRef = useRef(null)
   const theme = useTheme()
   const [palette] = useState(theme.palette)
   const navigate = useNavigate()
@@ -41,6 +42,16 @@ function LessonPage() {
   }, [parsedLessonId])
 
   const currentQuiz = quizzes[currentIndex]
+
+  useEffect(() => {
+    if (currentQuiz?.sound) {
+      const audio = new Audio(`/sounds/${currentQuiz.sound}`)
+      audioRef.current = audio
+      audio.play().catch((e) => {
+        console.warn("Не удалось воспроизвести звук:", e)
+      })
+    }
+  }, [currentQuiz])
 
   const handleSelect = (option) => {
     if (!isChecked) setSelectedOption(option)
@@ -101,6 +112,15 @@ function LessonPage() {
     )
   }
 
+  const handleReplaySound = () => {
+    if (audioRef.current) {
+      audioRef.current.currentTime = 0
+      audioRef.current
+        .play()
+        .catch((e) => console.warn("Ошибка при воспроизведении звука:", e))
+    }
+  }
+
   return (
     <div className="lesson-page">
       <div className="lesson-page-header">
@@ -124,6 +144,14 @@ function LessonPage() {
         <Typography variant="h6" gutterBottom>
           {currentQuiz.question}
         </Typography>
+        <Button
+          variant="outlined"
+          size="small"
+          onClick={handleReplaySound}
+          sx={{mb: 2}}
+        >
+          🔊 Воспроизвести
+        </Button>
 
         {currentQuiz.options.map((option) => (
           <Card

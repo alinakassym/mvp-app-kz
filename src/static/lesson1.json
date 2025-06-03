@@ -7,6 +7,7 @@
       "question": "Сәлем",
       "description": "Выберите правильный перевод",
       "type": "select_translation",
+      "sound": "salem.mp3",
       "options": [
         {"id": 1, "text": "Прощайте", "isCorrect": false},
         {"id": 3, "text": "Доброе утро", "isCorrect": false},
@@ -20,6 +21,7 @@
       "question": "Қайырлы таң",
       "description": "Выберите правильный перевод",
       "type": "select_translation",
+      "sound": "kairly_tan.mp3",
       "options": [
         {"id": 1, "text": "Прощайте", "isCorrect": false},
         {"id": 3, "text": "Доброе утро", "isCorrect": true},
@@ -33,6 +35,7 @@
       "question": "Сәлеметсіз бе",
       "description": "Выберите правильный перевод",
       "type": "select_translation",
+      "sound": "salemetsiz_be.mp3",
       "options": [
         {"id": 5, "text": "Добрый вечер", "isCorrect": false},
         {"id": 6, "text": "Здравствуйте", "isCorrect": true},
@@ -46,6 +49,7 @@
       "question": "Қайырлы кеш",
       "description": "Выберите правильный перевод",
       "type": "select_translation",
+      "sound": "kaiyrly_kesh.mp3",
       "options": [
         {"id": 8, "text": "Добрый вечер", "isCorrect": true},
         {"id": 9, "text": "Здравствуйте", "isCorrect": false},
@@ -59,6 +63,7 @@
       "question": "Сау болыңыз",
       "description": "Выберите правильный перевод",
       "type": "select_translation",
+      "sound": "sau_bolynyz.mp3",
       "options": [
         {"id": 11, "text": "До свидания", "isCorrect": true},
         {"id": 12, "text": "Добрый вечер", "isCorrect": false},
@@ -72,6 +77,7 @@
       "question": "Қош болыңыз",
       "description": "Выберите правильный перевод",
       "type": "select_translation",
+      "sound": "qosh_bolynyz.mp3",
       "options": [
         {"id": 14, "text": "Прощайте", "isCorrect": true},
         {"id": 15, "text": "Здравствуйте!", "isCorrect": false},
