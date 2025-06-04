@@ -1,5 +1,5 @@
 import React from "react"
-import {IconButton, Typography, Box} from "@mui/material"
+import {IconButton, Box} from "@mui/material"
 import VolumeUpIcon from "@mui/icons-material/VolumeUp"
 import "./QuestionWithSound.css"
 
