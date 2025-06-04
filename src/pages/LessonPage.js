@@ -11,7 +11,7 @@ import {
 } from "@mui/material"
 import CloseIcon from "@mui/icons-material/Close"
 import {useNavigate, useParams} from "react-router-dom"
-import quizzesData from "../static/lesson1.json"
+import quizzesData from "../static/lessons.json"
 import "./LessonPage.css"
 import QuestionWithSound from "../components/QuestionWithSound"
 
