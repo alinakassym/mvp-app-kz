@@ -1,0 +1,16 @@
+.question-with-sound-block {
+  padding-bottom: 8px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.question-with-sound-block .question-sound {
+  margin-right: 5px;
+  align-content: center;
+}
+
+.question-with-sound-block .question-word {
+  margin-right: 5px;
+  align-content: center;
+  line-height: 34px;
+}
