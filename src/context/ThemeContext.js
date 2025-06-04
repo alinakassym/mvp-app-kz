@@ -85,6 +85,14 @@ export function ThemeProvider({children}) {
                           : "none",
                     },
                   },
+                  {
+                    props: {variant: "custom-outlined"},
+                    style: {
+                      borderWidth: 1,
+                      borderColor: "#e0e0e0",
+                      backgroundColor: "transparent",
+                    },
+                  },
                 ],
               },
             },
