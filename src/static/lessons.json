@@ -37,6 +37,7 @@
       "description": "Выберите правильный перевод",
       "type": "select_translation",
       "sound": "salemetsiz_be.mp3",
+      "image": "salemetsiz_be.png",
       "options": [
         {"id": 5, "text": "Добрый вечер", "isCorrect": false},
         {"id": 6, "text": "Здравствуйте", "isCorrect": true},
@@ -66,6 +67,7 @@
       "description": "Выберите правильный перевод",
       "type": "select_translation",
       "sound": "sau_bolynyz.mp3",
+      "image": "male_speaking.png",
       "options": [
         {"id": 11, "text": "До свидания", "isCorrect": true},
         {"id": 12, "text": "Добрый вечер", "isCorrect": false},
@@ -80,6 +82,7 @@
       "description": "Выберите правильный перевод",
       "type": "select_translation",
       "sound": "qosh_bolynyz.mp3",
+      "image": "male_speaking.png",
       "options": [
         {"id": 14, "text": "Прощайте", "isCorrect": true},
         {"id": 15, "text": "Здравствуйте", "isCorrect": false},
