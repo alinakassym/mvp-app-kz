@@ -13,6 +13,7 @@ import CloseIcon from "@mui/icons-material/Close"
 import {useNavigate, useParams} from "react-router-dom"
 import quizzesData from "../static/lesson1.json"
 import "./LessonPage.css"
+import QuestionWithSound from "../components/QuestionWithSound"
 
 function LessonPage() {
   const audioRef = useRef(null)
@@ -141,17 +142,28 @@ function LessonPage() {
         <Typography variant="body1" gutterBottom>
           {currentQuiz.description}
         </Typography>
-        <Typography variant="h6" gutterBottom>
-          {currentQuiz.question}
-        </Typography>
-        <Button
-          variant="outlined"
-          size="small"
-          onClick={handleReplaySound}
-          sx={{mb: 2}}
-        >
-          🔊 Воспроизвести
-        </Button>
+        {currentQuiz.image ? (
+          <Card
+            variant="custom-outlined"
+            sx={{borderRadius: 3}}
+            className="quiz-question-with-image"
+          >
+            <img
+              src={`/images/${currentQuiz.image}`}
+              alt="quiz illustration"
+              className="quiz-image"
+            />
+            <QuestionWithSound
+              question={currentQuiz.question}
+              onClick={handleReplaySound}
+            />
+          </Card>
+        ) : (
+          <QuestionWithSound
+            question={currentQuiz.question}
+            onClick={handleReplaySound}
+          />
+        )}
 
         {currentQuiz.options.map((option) => (
           <Card
