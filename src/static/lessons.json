@@ -1,5 +1,4 @@
 {
-  "lessonId": 0,
   "quizzes": [
     {
       "id": 1,
@@ -83,24 +82,94 @@
       "sound": "qosh_bolynyz.mp3",
       "options": [
         {"id": 14, "text": "Прощайте", "isCorrect": true},
-        {"id": 15, "text": "Здравствуйте!", "isCorrect": false},
+        {"id": 15, "text": "Здравствуйте", "isCorrect": false},
         {"id": 16, "text": "Привет", "isCorrect": false}
       ],
       "order": 5
     },
     {
-      "id": 7,
-      "lessonId": 0,
+      "id": 11,
+      "lessonId": 1,
+      "question": "Қалайсың",
+      "description": "Выберите правильный перевод",
+      "type": "select_translation",
+      "sound": "qalaisyn.mp3",
+      "options": [
+        {"id": 1, "text": "Как дела", "isCorrect": true},
+        {"id": 3, "text": "Доброе утро", "isCorrect": false},
+        {"id": 4, "text": "До свидания", "isCorrect": false}
+      ],
+      "order": 0
+    },
+    {
+      "id": 12,
+      "lessonId": 1,
+      "question": "Сәлем",
+      "description": "Выберите правильный перевод",
+      "type": "select_translation",
+      "sound": "salem.mp3",
+      "options": [
+        {"id": 1, "text": "Прощайте", "isCorrect": false},
+        {"id": 3, "text": "Доброе утро", "isCorrect": false},
+        {"id": 4, "text": "Привет", "isCorrect": true}
+      ],
+      "order": 1
+    },
+    {
+      "id": 13,
+      "lessonId": 1,
+      "question": "Сау бол",
+      "description": "Выберите правильный перевод",
+      "type": "select_translation",
+      "sound": "sau_bol.mp3",
+      "options": [
+        {"id": 5, "text": "Пока", "isCorrect": true},
+        {"id": 6, "text": "Здравствуйте", "isCorrect": false},
+        {"id": 7, "text": "До свидания", "isCorrect": false}
+      ],
+      "order": 2
+    },
+    {
+      "id": 14,
+      "lessonId": 1,
       "question": "Көріскенше",
       "description": "Выберите правильный перевод",
       "type": "select_translation",
-      "sound": "koriskenche.mp3",
+      "sound": "koriskenshe.mp3",
       "options": [
         {"id": 17, "text": "Увидимся", "isCorrect": true},
         {"id": 18, "text": "До свидания", "isCorrect": false},
         {"id": 19, "text": "Добрый день", "isCorrect": false}
       ],
-      "order": 6
+      "order": 3
+    },
+    {
+      "id": 15,
+      "lessonId": 1,
+      "question": "Келесі кездескенше",
+      "description": "Выберите правильный перевод",
+      "type": "select_translation",
+      "sound": "kelesi_kezdeskenshe.mp3",
+      "options": [
+        {"id": 11, "text": "До свидания", "isCorrect": false},
+        {"id": 12, "text": "До следующей встречи", "isCorrect": true},
+        {"id": 13, "text": "Доброе утро", "isCorrect": false}
+      ],
+      "order": 4
+    },
+    {
+      "id": 16,
+      "lessonId": 1,
+      "question": "Хабарласамыз",
+      "description": "Выберите правильный перевод",
+      "type": "select_translation",
+      "sound": "habarlasamyz.mp3",
+      "options": [
+        {"id": 14, "text": "Спишемся/на связи", "isCorrect": true},
+        {"id": 15, "text": "Пока", "isCorrect": false},
+        {"id": 16, "text": "Привет", "isCorrect": false}
+      ],
+      "order": 5
     }
   ]
 }
