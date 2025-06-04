@@ -8,6 +8,7 @@
       "description": "Выберите правильный перевод",
       "type": "select_translation",
       "sound": "salem.mp3",
+      "image": "salem.png",
       "options": [
         {"id": 1, "text": "Прощайте", "isCorrect": false},
         {"id": 3, "text": "Доброе утро", "isCorrect": false},
@@ -21,7 +22,8 @@
       "question": "Қайырлы таң",
       "description": "Выберите правильный перевод",
       "type": "select_translation",
-      "sound": "kairly_tan.mp3",
+      "sound": "kaiyrly_tan_f.mp3",
+      "image": "kaiyrly_tan_f.png",
       "options": [
         {"id": 1, "text": "Прощайте", "isCorrect": false},
         {"id": 3, "text": "Доброе утро", "isCorrect": true},
@@ -50,6 +52,7 @@
       "description": "Выберите правильный перевод",
       "type": "select_translation",
       "sound": "kaiyrly_kesh.mp3",
+      "image": "kaiyrly_kesh.png",
       "options": [
         {"id": 8, "text": "Добрый вечер", "isCorrect": true},
         {"id": 9, "text": "Здравствуйте", "isCorrect": false},
@@ -84,6 +87,20 @@
         {"id": 16, "text": "Привет", "isCorrect": false}
       ],
       "order": 5
+    },
+    {
+      "id": 7,
+      "lessonId": 0,
+      "question": "Көріскенше",
+      "description": "Выберите правильный перевод",
+      "type": "select_translation",
+      "sound": "koriskenche.mp3",
+      "options": [
+        {"id": 17, "text": "Увидимся", "isCorrect": true},
+        {"id": 18, "text": "До свидания", "isCorrect": false},
+        {"id": 19, "text": "Добрый день", "isCorrect": false}
+      ],
+      "order": 6
     }
   ]
 }
