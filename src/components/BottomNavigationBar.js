@@ -4,6 +4,7 @@ import {useNavigate} from "react-router-dom"
 import {useAuth} from "../context/AuthContext"
 import {ReactComponent as HomeIcon} from "../assets/icons/home.svg"
 import {ReactComponent as UserIcon} from "../assets/icons/user.svg"
+import {ReactComponent as LessonsIcon} from "../assets/icons/graduation-cap.svg"
 import "./BottomNavigationBar.css"
 
 function BottomNavigationBar() {
@@ -26,7 +27,7 @@ function BottomNavigationBar() {
       >
         <BottomNavigationAction
           sx={{pb: 2}}
-          icon={<HomeIcon style={{height: 28, width: 28}} />}
+          icon={<LessonsIcon style={{height: 28, width: 28}} />}
         />
         <BottomNavigationAction
           sx={{pb: 2}}
