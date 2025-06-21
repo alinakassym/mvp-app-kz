@@ -7,6 +7,7 @@ import {
 } from "react-router-dom"
 import LoginPage from "./pages/LoginPage"
 import HomePage from "./pages/HomePage"
+import DictionaryPage from "./pages/DictionaryPage"
 import ProfilePage from "./pages/ProfilePage"
 import LessonPage from "./pages/LessonPage"
 import PrivateRoute from "./components/PrivateRoute"
@@ -25,6 +26,14 @@ function AppContent() {
           element={
             <PrivateRoute>
               <HomePage />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/dictionary"
+          element={
+            <PrivateRoute>
+              <DictionaryPage />
             </PrivateRoute>
           }
         />
