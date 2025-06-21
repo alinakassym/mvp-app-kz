@@ -11,7 +11,7 @@ import {Diamond as DiamondIcon} from "@mui/icons-material"
 import LocalFireDepartmentIcon from "@mui/icons-material/LocalFireDepartment"
 import "./HomePage.css"
 import {useEffect, useState} from "react"
-import testData from "./test.json"
+import testData from "../static/lessons.json"
 import {useNavigate} from "react-router-dom"
 
 function fetchSections() {

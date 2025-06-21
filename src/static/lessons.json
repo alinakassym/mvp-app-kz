@@ -1,4 +1,95 @@
 {
+  "queryResult": [
+    {
+      "id": 1,
+      "name": "Приветствие",
+      "lessons": [
+        {
+          "id": 0,
+          "sectionId": 1,
+          "name": "Простые и универсальные формы приветствия",
+          "description": "Простые и универсальные формы приветствия — те, которые подойдут в большинстве повседневных ситуаций",
+          "order": 1
+        },
+        {
+          "id": 1,
+          "sectionId": 1,
+          "name": "Приветствия в повседневной речи",
+          "description": "",
+          "order": 2
+        },
+
+        {
+          "id": 2,
+          "sectionId": 1,
+          "name": "Повторение",
+          "description": "",
+          "order": 2
+        },
+        {
+          "id": 3,
+          "sectionId": 1,
+          "name": "Закрепление",
+          "description": "",
+          "order": 3
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Знакомство",
+      "lessons": [
+        {
+          "id": 4,
+          "sectionId": 2,
+          "name": "Lesson 1",
+          "content": "This is the content of Lesson 1",
+          "order": 1
+        },
+        {
+          "id": 5,
+          "sectionId": 2,
+          "name": "Lesson 2",
+          "content": "This is the content of Lesson 2",
+          "order": 2
+        },
+        {
+          "id": 6,
+          "sectionId": 2,
+          "name": "Lesson 3",
+          "content": "This is the content of Lesson 3",
+          "order": 3
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "name": "Section 3",
+      "lessons": [
+        {
+          "id": 7,
+          "sectionId": 3,
+          "name": "Lesson 1",
+          "content": "This is the content of Lesson 1",
+          "order": 1
+        },
+        {
+          "id": 8,
+          "sectionId": 3,
+          "name": "Lesson 2",
+          "content": "This is the content of Lesson 2",
+          "order": 2
+        },
+        {
+          "id": 9,
+          "sectionId": 3,
+          "name": "Lesson 3",
+          "content": "This is the content of Lesson 3",
+          "order": 3
+        }
+      ]
+    }
+  ],
   "quizzes": [
     {
       "id": 1,
