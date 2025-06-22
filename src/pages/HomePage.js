@@ -50,9 +50,9 @@ function HomePage() {
   }
 
   return (
-    <div className="home-page">
+    <div className="page-container">
       <div
-        className="home-page-header"
+        className="page-header"
         style={{backgroundColor: palette.background.paper}}
       >
         <div
@@ -70,7 +70,7 @@ function HomePage() {
           <span>3</span>
         </div>
       </div>
-      <div className="home-page-content-wrapper">
+      <div className="page-content-wrapper">
         <div className="home-page-content">
           {sections.map((section, index) => (
             <Paper
